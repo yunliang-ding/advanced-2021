@@ -17,6 +17,7 @@
     "autoprefixer": "^10.1.0",
     "babel-loader": "^8.2.2",
     "css-loader": "^5.0.0",
+    "file-loader": "^6.2.0",
     "glob": "^7.1.6",
     "html-webpack-plugin": "^4.5.0",
     "less": "^3.12.2",
@@ -31,6 +32,7 @@
     "react-router-dom": "^5.2.0",
     "react-syntax-highlighter": "^15.4.3",
     "style-loader": "^2.0.0",
+    "url-loader": "^4.1.1",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.2"

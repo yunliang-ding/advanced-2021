@@ -36,6 +36,25 @@ module.exports = {
         ],
       },
       {
+        test: /\.(svg|png|jpe?g|gif)$/,
+        use: {
+          loader: "url-loader",
+          options: {
+            name: "[name].[ext]",
+            limit: 1024 * 3, //图片大于阈值 不会转base64,小于会转base64
+          },
+        },
+      },
+      {
+        test: /\.(woff|woff2|svg|eot)$/,
+        use: {
+          loader: "file-loader",
+          options: {
+            name: "[name].[ext]",
+          },
+        },
+      },
+      {
         test: /router.auto.js/,
         use: [
           {
