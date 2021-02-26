@@ -2,6 +2,7 @@ const path = require("path");
 const htmlwebpackplugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const AutoLoadImagePlugin = require("./plugins/auto-load-image-plugin.js");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 module.exports = {
   entry: "./src/index.js",
   mode: "development",
@@ -122,6 +123,7 @@ module.exports = {
       filename: `index.html`,
       chunks: "index",
     }),
+    new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
       filename: "css/[name].css",
     }),
