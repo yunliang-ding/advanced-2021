@@ -36,21 +36,46 @@ module.exports = {
         ],
       },
       {
-        test: /\.(svg|png|jpe?g|gif)$/,
+        test: /\.(png|jpe?g|gif)$/,
         use: {
           loader: "url-loader",
           options: {
             name: "[name].[ext]",
+            publicPath: "../image",
+            outputPath: "image",
+            limit: 100, //图片大于阈值 不会转base64,小于会转base64
+          },
+        },
+      },
+      {
+        test: /\.(png|jpe?g|gif)$/,
+        use: {
+          loader: "url-loader",
+          options: {
+            name: "[name].[ext]",
+            publicPath: "../image",
+            outputPath: "image",
             limit: 1024 * 3, //图片大于阈值 不会转base64,小于会转base64
           },
         },
       },
       {
-        test: /\.(woff|woff2|svg|eot)$/,
+        test: /\.svg$/,
+        use: {
+          loader: "url-loader",
+          options: {
+            name: "[name].[ext]",
+            limit: 100, //图片大于阈值 不会转base64,小于会转base64
+          },
+        },
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf)$/,
         use: {
           loader: "file-loader",
           options: {
             name: "[name].[ext]",
+            publicPath: "../", // 资源路径需要从css文件夹跳出去
           },
         },
       },
