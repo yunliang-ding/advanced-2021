@@ -36,7 +36,7 @@ module.exports = {
         ],
       },
       {
-        test: /app.router.js/,
+        test: /router.auto.js/,
         use: [
           {
             loader: "router-loader",

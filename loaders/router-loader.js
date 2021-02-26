@@ -32,12 +32,12 @@ module.exports = function (source) {
     .replace("{/* routers */}", routers.join("\n"));
 
   // 创建文件
-  if (!fs.existsSync(path.resolve(__dirname, `../src/.cache/app-router.js`))) {
+  if (!fs.existsSync(path.resolve(__dirname, `../src/.cache/router.auto.js`))) {
     fs.mkdirSync(path.resolve(__dirname, `../src/.cache`));
   }
   // 写入到缓存文件
   fs.writeFileSync(
-    path.resolve(__dirname, `../src/.cache/app-router.js`),
+    path.resolve(__dirname, `../src/.cache/router.auto.js`),
     result
   );
 
