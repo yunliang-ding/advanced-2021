@@ -1,7 +1,7 @@
 const path = require("path");
 const htmlwebpackplugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const routerwebpackplugin = require("./plugins/router-webpack-plugin.js");
+const AutoLoadImagePlugin = require("./plugins/auto-load-image-plugin.js");
 module.exports = {
   entry: "./src/index.js",
   mode: "development",
@@ -60,6 +60,18 @@ module.exports = {
         },
       },
       {
+        test: /\.image$/,
+        use: {
+          loader: "url-loader",
+          options: {
+            name: "[name].[ext]",
+            publicPath: "../static",
+            outputPath: "static",
+            limit: 100
+          },
+        },
+      },
+      {
         test: /\.svg$/,
         use: {
           loader: "url-loader",
@@ -102,8 +114,8 @@ module.exports = {
     port: 8080,
   },
   plugins: [
-    new routerwebpackplugin({
-      useDir: "docs",
+    new AutoLoadImagePlugin({
+      dir: "public",
     }),
     new htmlwebpackplugin({
       template: path.join(__dirname, `./view/index.html`),
