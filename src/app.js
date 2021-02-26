@@ -1,6 +1,6 @@
 import React from 'react'
 import '@/index.less'
-import Router from '@/router.auto.js'
+import Layout from '@/layout.js'
 export default () => {
-  return <Router />
+  return <Layout />
 }

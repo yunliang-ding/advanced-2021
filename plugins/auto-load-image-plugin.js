@@ -1,17 +1,14 @@
 const path = require("path");
 const glob = require('glob');
 const fs = require("fs");
-module.exports = class routerwebpackplugin {
+module.exports = class AutoLoadImagePlugin {
   constructor(options) {
     this.options = options;
   }
   apply(compiler) {
     //加载图片资源
-    compiler.hooks.emit.tapAsync("txtwebpackplugin", (compilation, cb) => {
-      let fileList = Object.keys(compilation.assets);
-      // 公共资源迁移
+    compiler.hooks.emit.tapAsync("AutoLoadImagePlugin", (compilation, cb) => {
       const files = glob.sync(path.resolve(__dirname,`../src/${this.options.dir}/*`));
-      console.log(files);
       files.forEach(file => {
         compilation.assets[`${this.options.dir}${file.substr(file.lastIndexOf('/'))}`] = {
           source: function () {
@@ -25,7 +22,7 @@ module.exports = class routerwebpackplugin {
       cb();
     });
     compiler.hooks.afterCompile.tap(
-      "routerwebpackplugin",
+      "AutoLoadImagePlugin",
       (compilation) => {
         // 把路由添加到文件依赖列表
         // compilation.fileDependencies.add(
