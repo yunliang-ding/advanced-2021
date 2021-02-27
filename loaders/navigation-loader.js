@@ -7,7 +7,7 @@ module.exports = function (source) {
 
   const floders = fs.readdirSync(path.resolve(__dirname, `../src/${dir}`));
 
-  const menuList = floders.map((floder, index) => {
+  const menuList = floders.map((floder) => {
     const menus = glob.sync(
       path.resolve(__dirname, `../src/${dir}/${floder}/*.md`)
     );
