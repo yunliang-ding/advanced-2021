@@ -70,6 +70,17 @@ module.exports = {
         ],
       },
       {
+        test: /navigation.auto.js/,
+        use: [
+          {
+            loader: "navigation-loader",
+            options: {
+              useDir: "docs",
+            },
+          },
+        ],
+      },
+      {
         test: /\.md$/,
         use: "raw-loader",
       },
@@ -93,5 +104,5 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: "css/[name].css",
     }),
-  ],
+  ]
 };

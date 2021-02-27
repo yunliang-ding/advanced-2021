@@ -5,6 +5,10 @@
 body {
   padding: 0;
   margin: 0;
+  div{
+    box-sizing: border-box;
+    font-family: DIN Alternate Bold;
+  }
   h1,
   h2 {
     font-family: DIN Alternate Bold;
@@ -60,6 +64,7 @@ blockquote {
         height: 100%;
         width: 200px;
         padding: 20px;
+        overflow: auto;
         background-color: #f1f1f1;
       }
       .app-main-right {
@@ -67,6 +72,32 @@ blockquote {
         overflow: auto;
         height: 100%;
         width: calc(100% - 200px);
+      }
+    }
+  }
+  .app-navigation{
+    .navigate-menu{
+      font-size: 20px;
+      margin-bottom:16px;
+      color:#333;
+      user-select: none;
+      .navigate-subMenu-label, .navigate-subMenu-label-select{
+        font-size: 15px;
+        padding-left:10px;
+        margin:8px 0;
+        a{
+          color:#666;
+          text-decoration: none;
+          cursor: pointer;
+        }
+        a:hover{
+          color:#2196f3;
+        }
+      }
+      .navigate-subMenu-label-select{
+        a{
+          color:#2196f3;
+        }
       }
     }
   }
