@@ -1,28 +1,20 @@
 # BCF
 
->BFC：Block Formatting Context（块级格式化上下文）
-在解释什么什么是 BFC 之前，我们需要先知道 Box、Formatting Context 的概念
+## FC实现原理，可以解决的问题，如何创建BFC
+>[参看](https://www.jb51.net/css/598508.html)
+>简单来说，BFC就是一个独立不干扰外界也不受外界干扰的盒子啊
 
-## Box：CSS 布局的基本单位
-
+## 触发 BFC
 ```
-Box 是 CSS 布局的对象和基本单位，直观来说，一个页面有很多个 Box 组成的。
-
-元素的类型和 display 属性，决定了这个 box 的类型。不同的 box，会参与不同的 Formatting Context（一个决定如何渲染文档的容器），因此 box 内的元素会以不同的方式渲染。
+只要元素满足下面任一条件即可触发 BFC 特性：
+body 根元素
+浮动元素：float 除 none 以外的值
+绝对定位元素：position (absolute、fixed)
+display 为 inline-block、table-cells、flex
+overflow 除了 visible 以外的值 (hidden、auto、scroll)
 ```
-
-## 常见盒子:
-
-- block-level box：display 属性为 block，list-item，table 的元素，会生成 block-level box
-
-* inline-level box：display 属性为 inline，inline-block，inline-table 的元素，会生成 inline-level box
-
-- run-in box：css3 特有
-
-## Formatting Context:
-```
-Formatting Context 是 W3C CSS2.1 规范中的一个概念。
-他是页面的一块渲染区域，并且有一套渲染规则，它决定了其子元素如何定位，以及和其他元素的关系和相互作用。
-最常见的 Formatting Context 有 Block formatting context 和 Inline formatting context
-```
+## BFC 特性及应用
+1. 同一个 BFC 下外边距会发生折叠
+2. BFC 可以包含浮动的元素（清除浮动）
+3. BFC 可以阻止元素被浮动元素覆盖
 
