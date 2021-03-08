@@ -21,15 +21,15 @@ module.exports = class AutoLoadImagePlugin {
       })
       cb();
     });
-    compiler.hooks.afterCompile.tap(
-      "AutoLoadImagePlugin",
-      (compilation) => {
-        // 把路由添加到文件依赖列表
-        // compilation.fileDependencies.add(
-        //   path.resolve(__dirname, `../src/${this.options.useDir}/**/*.md`)
-        // );
-        // console.log(compilation.fileDependencies)
-      }
-    );
+    // compiler.hooks.afterCompile.tap(
+    //   "AutoLoadImagePlugin",
+    //   (compilation) => {
+    //     // 把路由添加到文件依赖列表
+    //     compilation.fileDependencies.add(
+    //       path.resolve(__dirname, `../src/${this.options.dir}`)
+    //     );
+    //     console.log(compilation.fileDependencies)
+    //   }
+    // );
   }
 };
